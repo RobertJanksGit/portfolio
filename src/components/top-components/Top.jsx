@@ -1,6 +1,15 @@
 import { useState } from "react";
-import "./App.css";
+import Navbar from "./navbar/Navbar";
+import TopMain from "./main/TopMain";
+("./navbar/Navbar");
 
 function Top() {
-  return <div></div>;
+  return (
+    <div className="w-full">
+      <Navbar />
+      <TopMain />
+    </div>
+  );
 }
+
+export default Top;
