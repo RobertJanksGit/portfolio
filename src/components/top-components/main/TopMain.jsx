@@ -1,9 +1,23 @@
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 function TopMain() {
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+
   return (
     <div className="w-full flex">
-      <div className="w-1/2 pr-96">
+      <div className="w-1/2 pr-[20%]">
         <h1 className="text-[72px] font-bold">Some Fancy Headline here</h1>
-        <p>
+        <p className="text-[22px]">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -14,11 +28,13 @@ function TopMain() {
         </p>
       </div>
       <div className="w-1/2">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/5/59/Epson_logo.svg"
-          alt="Epson Logo"
-          className="w-96"
-        />
+        <Slider {...sliderSettings}>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/5/59/Epson_logo.svg"
+            alt="Slide 1"
+            className="w-4"
+          />
+        </Slider>
       </div>
     </div>
   );
