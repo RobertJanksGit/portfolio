@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Top from "./components/top-components/Top";
+import Middle from "./components/middle-components/Middle";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,6 +12,7 @@ function App() {
       <Navbar className="fixed top-0 left-0 w-full z-50" />
       <main className="flex-1 pt-16">
         <Top />
+        <Middle />
       </main>
     </div>
   );
