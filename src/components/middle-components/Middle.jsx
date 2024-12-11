@@ -4,9 +4,11 @@ function Middle() {
   return (
     <div className="pt-[80px] pb-[80px] bg-gray-100">
       {/* Header Section */}
-      <div className="flex text-center mb-12">
-        <div className="pr-[25%]">
-          <h1 className="text-4xl font-bold">Pick your starting point</h1>
+      <div className="flex text-center mb-12 p-[40px]">
+        <div className="w-[50%]">
+          <h1 className="text-[3.25rem] font-bold max-w-[8em] text-left">
+            Pick your starting point
+          </h1>
         </div>
         <div className="text-left pr-[30%]">
           <p className="text-lg text-gray-600 mt-4">
