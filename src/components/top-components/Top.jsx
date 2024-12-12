@@ -14,7 +14,7 @@ function Top() {
   };
 
   return (
-    <div className="w-full flex">
+    <div className="w-full h-screen flex">
       <div className="w-1/2 pr-[20%]">
         <h1 className="text-[72px] font-bold">Some Fancy Headline here</h1>
         <p className="text-[22px]">

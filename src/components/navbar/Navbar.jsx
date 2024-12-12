@@ -1,10 +1,13 @@
 import { useState } from "react";
 
-function Navbar() {
+function Navbar({ isScrolled }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   return (
-    <div className="flex justify-between items-center p-4 w-full">
+    <div
+      className={`fixed top-0 left-0 w-full z-50 p-4 flex justify-between items-center transition-all duration-300 ${
+        isScrolled ? "bg-black text-white shadow-md" : "bg-transparent"
+      }`}
+    >
       <img
         src="https://upload.wikimedia.org/wikipedia/commons/5/59/Epson_logo.svg"
         alt="Epson Logo"

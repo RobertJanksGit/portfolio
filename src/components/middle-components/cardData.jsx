@@ -7,7 +7,8 @@ const cardData = [
     image: "https://via.placeholder.com/600x400",
     date: "07.22.2019",
     buttonText: "Read More",
-    style: "bg-black text-white text-center",
+    style: "bg-[#F1F1EF] text-black text-center",
+    href: "http://google.com/",
   },
   {
     id: 2,
@@ -17,7 +18,8 @@ const cardData = [
     image: "https://via.placeholder.com/600x400",
     date: "",
     buttonText: "Read More",
-    style: "bg-black text-white text-center",
+    style: "bg-[#F1F1EF] text-black text-center",
+    href: "http://github.com/",
   },
   {
     id: 3,
@@ -26,7 +28,8 @@ const cardData = [
     image: "https://via.placeholder.com/600x400",
     date: "",
     buttonText: "Explore",
-    style: "bg-black text-white text-center",
+    style: "bg-[#F1F1EF] text-black text-center",
+    href: "http://x.com/",
   },
   {
     id: 4,
@@ -36,7 +39,8 @@ const cardData = [
     image: "https://via.placeholder.com/600x400",
     date: "07.22.2019",
     buttonText: "Read More",
-    style: "bg-black text-white text-center",
+    style: "bg-[#F1F1EF] text-black text-center",
+    href: "http://bing.com/",
   },
   {
     id: 5,
@@ -46,7 +50,8 @@ const cardData = [
     image: "https://via.placeholder.com/600x400",
     date: "",
     buttonText: "Read More",
-    style: "bg-black text-white text-center",
+    style: "bg-[#F1F1EF] text-black text-center",
+    href: "http://yahoo.com/",
   },
   {
     id: 6,
@@ -55,7 +60,8 @@ const cardData = [
     image: "https://via.placeholder.com/300x200",
     date: "",
     buttonText: "Explore",
-    style: "bg-black text-white text-center",
+    style: "bg-[#F1F1EF] text-black text-center",
+    href: "http://hotmail.com/",
   },
   {
     id: 7,
@@ -64,7 +70,8 @@ const cardData = [
     image: "https://via.placeholder.com/300x200",
     date: "",
     buttonText: "Explore",
-    style: "bg-black text-white text-center",
+    style: "bg-[#F1F1EF] text-black text-center",
+    href: "http://netflix.com/",
   },
   {
     id: 8,
@@ -73,7 +80,8 @@ const cardData = [
     image: "https://via.placeholder.com/300x200",
     date: "",
     buttonText: "Explore",
-    style: "bg-black text-white text-center",
+    style: "bg-[#F1F1EF] text-black text-center",
+    href: "http://tesla.com/",
   },
   {
     id: 9,
@@ -82,7 +90,8 @@ const cardData = [
     image: "https://via.placeholder.com/300x200",
     date: "",
     buttonText: "Explore",
-    style: "bg-black text-white text-center",
+    style: "bg-[#F1F1EF] text-black text-center",
+    href: "http://taco.com/",
   },
 ];
 

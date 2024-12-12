@@ -17,7 +17,7 @@ function Carousel() {
   };
 
   return (
-    <div className="relative py-16 px-8 bg-gray-100">
+    <div className="relative pb-[2rem] px-8 bg-gray-100">
       {/* Cards Container */}
       <div className="relative overflow-hidden">
         <div
@@ -27,34 +27,29 @@ function Carousel() {
           }}
         >
           {cardData.map((card) => (
-            <div
-              key={card.id}
-              className={`w-[600px] flex-shrink-0 p-8 rounded-lg shadow-lg ${card.style}`}
-            >
-              {card.image && (
-                <img
-                  src={card.image}
-                  alt={card.title}
-                  className="rounded-t-lg w-[600px] mb-4"
-                />
-              )}
+            <a key={card.id} href={card.href}>
               <div
-                className={
-                  card.style.includes("text-center") ? "text-center" : ""
-                }
+                className={`flex w-[600px] h-[400px] flex-shrink-0 p-8 shadow-lg ${card.style} m-[2rem]`}
               >
-                {card.date && (
-                  <p className="text-sm text-gray-500 mb-2">{card.date}</p>
+                {card.image && (
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className=" w-[300px] mb-4"
+                  />
                 )}
-                <h2 className="text-2xl font-bold mb-4">{card.title}</h2>
-                <p className="text-lg">{card.description}</p>
-                {card.buttonText && (
-                  <button className="mt-4 px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700">
-                    {card.buttonText}
-                  </button>
-                )}
+                <div className="text-content">
+                  <div
+                    className={
+                      card.style.includes("text-center") ? "text-center" : ""
+                    }
+                  >
+                    <h2 className="text-2xl font-bold mb-4">{card.title}</h2>
+                    <p className="text-lg">{card.description}</p>
+                  </div>
+                </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
