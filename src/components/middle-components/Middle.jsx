@@ -2,7 +2,7 @@ import Carousel from "./Carousel";
 
 function Middle() {
   return (
-    <div className="pt-[80px] bg-gray-100">
+    <div id="projects" className="pt-[80px] bg-gray-100">
       {/* Header Section */}
       <div className="flex text-center p-[40px] pb-[0px]">
         <div className="w-[50%]">
