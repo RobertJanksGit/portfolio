@@ -17,7 +17,7 @@ function App() {
   }, []);
 
   return (
-    <div className="w-full h-screen flex flex-col">
+    <div id="about" className="w-full h-screen flex flex-col">
       <Navbar
         isScrolled={isScrolled}
         className="fixed top-0 left-0 w-full z-50"
