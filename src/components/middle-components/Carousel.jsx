@@ -45,7 +45,9 @@ function Carousel() {
                     }
                   >
                     <h2 className="text-2xl font-bold mb-4">{card.title}</h2>
-                    <p className="text-lg">{card.description}</p>
+                    <div className="max-h-60 overflow-auto">
+                      <p className="text-lg p-3">{card.description}</p>
+                    </div>
                   </div>
                 </div>
               </div>
