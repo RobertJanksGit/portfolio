@@ -56,4 +56,4 @@ const Login = ({ onClose }) => {
   );
 };
 
-export default LoginPopup;
+export default Login;
