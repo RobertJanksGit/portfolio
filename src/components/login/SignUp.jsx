@@ -1,7 +1,7 @@
 import React from "react";
 
-const Login = ({ onClose, onSwitch }) => {
-  const handleLogin = (e) => {
+const SignUp = ({ onClose, onSwitch }) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
     onClose();
   };
@@ -20,14 +20,14 @@ const Login = ({ onClose, onSwitch }) => {
         >
           &times;
         </button>
-        <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleSignUp} className="space-y-4">
           <h2 className="text-xl font-semibold text-gray-800">
-            Sign in to get access to the ChatBot
+            Sign up to get access to the ChatBot
           </h2>
           <h3 className="text-black">
-            Don't have an account?{" "}
+            Already have an account?{" "}
             <a onClick={handleSwitch} className="underline">
-              Sign up
+              Sign in
             </a>
           </h3>
           <div>
@@ -50,12 +50,11 @@ const Login = ({ onClose, onSwitch }) => {
               className="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <a className="text-black">Forgot password?</a>
           <button
             type="submit"
             className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
           >
-            Sign in
+            Sign up
           </button>
           <div>or</div>
           <button className="border-black px-4 py-2 hover:bg-slate-50">
@@ -67,4 +66,4 @@ const Login = ({ onClose, onSwitch }) => {
   );
 };
 
-export default Login;
+export default SignUp;

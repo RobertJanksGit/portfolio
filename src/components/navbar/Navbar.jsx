@@ -1,10 +1,13 @@
 import { useState } from "react";
 import Login from "../login/Login";
+import SignUp from "../login/SignUp";
 
 function Navbar({ isScrolled }) {
   const [showLogin, setShowLogin] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
 
   const toggleLogin = () => setShowLogin(!showLogin);
+  const toggleSignUp = () => setShowSignUp(!showSignUp);
 
   return (
     <div
@@ -28,13 +31,22 @@ function Navbar({ isScrolled }) {
           ChatBot
         </a>
       </nav>
-      <button
-        onClick={toggleLogin}
-        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-      >
-        Sign In
-      </button>
-      {showLogin && <Login onClose={toggleLogin} />}
+      <div>
+        <button
+          onClick={toggleLogin}
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          Sign In
+        </button>
+        <button
+          onClick={toggleSignUp}
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          Sign Up
+        </button>
+      </div>
+      {showLogin && <Login onClose={toggleLogin} onSwitch={toggleSignUp} />}
+      {showSignUp && <SignUp onClose={toggleSignUp} onSwitch={toggleLogin} />}
     </div>
   );
 }
