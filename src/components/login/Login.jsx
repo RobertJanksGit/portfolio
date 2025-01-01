@@ -16,12 +16,15 @@ const Login = ({ onClose }) => {
           &times;
         </button>
         <form onSubmit={handleLogin} className="space-y-4">
-          <h2 className="text-xl font-semibold text-gray-800">Login</h2>
+          <h2 className="text-xl font-semibold text-gray-800">
+            Sign in to get access to the ChatBot
+          </h2>
+          <h3 className="text-black">
+            Don't have an account? <a className="underline">Sign up</a>
+          </h3>
           <div>
-            <label className="block text-sm text-gray-600 mb-1" htmlFor="email">
-              Email:
-            </label>
             <input
+              placeholder="Email address"
               id="email"
               type="email"
               name="email"
@@ -30,13 +33,8 @@ const Login = ({ onClose }) => {
             />
           </div>
           <div>
-            <label
-              className="block text-sm text-gray-600 mb-1"
-              htmlFor="password"
-            >
-              Password:
-            </label>
             <input
+              placeholder="Password"
               id="password"
               type="password"
               name="password"
@@ -44,11 +42,12 @@ const Login = ({ onClose }) => {
               className="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
+          <a className="text-black">Forgot password?</a>
           <button
             type="submit"
             className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
           >
-            Login
+            Sign in
           </button>
         </form>
       </div>
