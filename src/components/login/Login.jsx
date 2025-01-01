@@ -49,6 +49,10 @@ const Login = ({ onClose }) => {
           >
             Sign in
           </button>
+          <div>or</div>
+          <button className="border-black px-4 py-2 hover:bg-slate-50">
+            Continue with Google
+          </button>
         </form>
       </div>
     </div>
