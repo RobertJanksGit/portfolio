@@ -1,7 +1,11 @@
 import { useState } from "react";
+import Login from "../login/Login";
 
 function Navbar({ isScrolled }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+
+  const toggleLogin = () => setShowLogin(!showLogin);
+
   return (
     <div
       className={`fixed top-0 left-0 w-full z-50 p-4 flex justify-between items-center transition-all duration-300 ${
@@ -24,15 +28,13 @@ function Navbar({ isScrolled }) {
           ChatBot
         </a>
       </nav>
-      <div>
-        <a
-          href="#login"
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
-          onClick={() => setIsLoggedIn(!isLoggedIn)}
-        >
-          {isLoggedIn ? "LOG OUT" : "LOG IN"}
-        </a>
-      </div>
+      <button
+        onClick={toggleLogin}
+        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+      >
+        Login
+      </button>
+      {showLogin && <Login onClose={toggleLogin} />}
     </div>
   );
 }
