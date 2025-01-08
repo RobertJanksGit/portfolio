@@ -1,9 +1,23 @@
-import React from "react";
+import { useState } from "react";
+import { login } from "../../firebase/auth.js";
 
 const Login = ({ onClose, onSwitch }) => {
-  const handleLogin = (e) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isFailedLogin, setIsFailedLogin] = useState(false);
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    onClose();
+    const success = await login(
+      email,
+      setEmail,
+      password,
+      setPassword,
+      setIsFailedLogin
+    );
+    if (success) {
+      onClose();
+    }
   };
   const handleSwitch = (e) => {
     e.preventDefault();
@@ -18,9 +32,12 @@ const Login = ({ onClose, onSwitch }) => {
           className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
           onClick={onClose}
         >
-          &times;
+          ✕
         </button>
         <form onSubmit={handleLogin} className="space-y-4">
+          {isFailedLogin && (
+            <p className="text-red-600 font-bold">Invalid email or password</p>
+          )}
           <h2 className="text-xl font-semibold text-gray-800">
             Sign in to get access to the ChatBot
           </h2>
@@ -35,7 +52,8 @@ const Login = ({ onClose, onSwitch }) => {
               placeholder="Email address"
               id="email"
               type="email"
-              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
               className="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
@@ -45,7 +63,8 @@ const Login = ({ onClose, onSwitch }) => {
               placeholder="Password"
               id="password"
               type="password"
-              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               required
               className="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
