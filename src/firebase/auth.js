@@ -13,7 +13,7 @@ const login = async (
     await signInWithEmailAndPassword(auth, email, password);
     setEmail("");
     setPassword("");
-    setIsFailedLogin("");
+    setIsFailedLogin(false);
     return true;
   } catch (error) {
     setIsFailedLogin(true);
