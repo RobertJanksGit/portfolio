@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Login from "../login/Login";
 import SignUp from "../login/SignUp";
+import { logout, login } from "../../firebase/auth";
 
 function Navbar({ isScrolled }) {
   const [showLogin, setShowLogin] = useState(false);
@@ -8,6 +9,14 @@ function Navbar({ isScrolled }) {
 
   const toggleLogin = () => setShowLogin(!showLogin);
   const toggleSignUp = () => setShowSignUp(!showSignUp);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    const {name} = e.target;
+    if (name === "logout") {
+
+    }
+  }
 
   return (
     <div
@@ -39,10 +48,18 @@ function Navbar({ isScrolled }) {
           Sign In
         </button>
         <button
+          name="login"
           onClick={toggleSignUp}
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
         >
           Sign Up
+        </button>
+        <button
+        name="logout"
+          onClick={}
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          Log Out
         </button>
       </div>
       {showLogin && <Login onClose={toggleLogin} onSwitch={toggleSignUp} />}

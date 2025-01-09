@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "./firebaseConfig";
 
 //Setting up login function
@@ -22,4 +22,9 @@ const login = async (
   }
 };
 
-export { login };
+const logout = async () => {
+  signOut(auth);
+  console.log("User logged out");
+};
+
+export { login, logout };
