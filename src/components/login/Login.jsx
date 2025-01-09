@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { login } from "../../firebase/auth.js";
+import { login } from "../../firebase/handleAauth.js";
 
 const Login = ({ onClose, onSwitch }) => {
   const [email, setEmail] = useState("");

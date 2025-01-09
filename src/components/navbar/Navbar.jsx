@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Login from "../login/Login";
 import SignUp from "../login/SignUp";
-import { logout, login } from "../../firebase/auth";
+import { logout, login } from "../../firebase/handleAauth";
+import { useAuth } from "../../firebase/authContext";
 
 function Navbar({ isScrolled }) {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
+  const { currentUser } = useAuth();
 
   const toggleLogin = () => setShowLogin(!showLogin);
   const toggleSignUp = () => setShowSignUp(!showSignUp);
@@ -44,27 +46,32 @@ function Navbar({ isScrolled }) {
         </a>
       </nav>
       <div className="space-x-4">
-        <button
-          name="login"
-          onClick={handleClick}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        >
-          Sign In
-        </button>
-        <button
-          name="signup"
-          onClick={handleClick}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        >
-          Sign Up
-        </button>
-        <button
-          name="logout"
-          onClick={handleClick}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        >
-          Log Out
-        </button>
+        {currentUser ? (
+          <button
+            name="logout"
+            onClick={handleClick}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Log Out
+          </button>
+        ) : (
+          <>
+            <button
+              name="login"
+              onClick={handleClick}
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+              Sign In
+            </button>
+            <button
+              name="signup"
+              onClick={handleClick}
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+              Sign Up
+            </button>
+          </>
+        )}
       </div>
       {showLogin && <Login onClose={toggleLogin} onSwitch={toggleSignUp} />}
       {showSignUp && <SignUp onClose={toggleSignUp} onSwitch={toggleLogin} />}
