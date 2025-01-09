@@ -18,7 +18,7 @@ const SignUp = ({ onClose, onSwitch }) => {
           className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
           onClick={onClose}
         >
-          &times;
+          ✕
         </button>
         <form onSubmit={handleSignUp} className="space-y-4">
           <h2 className="text-xl font-semibold text-gray-800">
@@ -31,8 +31,11 @@ const SignUp = ({ onClose, onSwitch }) => {
             </a>
           </h3>
           <div>
+            <label className="block text-sm text-gray-600 mb-1" htmlFor="email">
+              Email address
+            </label>
             <input
-              placeholder="Email address"
+              placeholder="e.g., yourname@mail.com"
               id="email"
               type="email"
               name="email"
@@ -41,8 +44,11 @@ const SignUp = ({ onClose, onSwitch }) => {
             />
           </div>
           <div>
+            <label className="block text-sm text-gray-600 mb-1" htmlFor="email">
+              Password
+            </label>
             <input
-              placeholder="Password"
+              placeholder="Must have at least 6 characters"
               id="password"
               type="password"
               name="password"

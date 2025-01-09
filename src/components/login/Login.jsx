@@ -48,8 +48,11 @@ const Login = ({ onClose, onSwitch }) => {
             </a>
           </h3>
           <div>
+            <label className="block text-sm text-gray-600 mb-1" htmlFor="email">
+              Email address
+            </label>
             <input
-              placeholder="Email address"
+              placeholder="e.g., yourname@mail.com"
               id="email"
               type="email"
               value={email}
@@ -59,8 +62,11 @@ const Login = ({ onClose, onSwitch }) => {
             />
           </div>
           <div>
+            <label className="block text-sm text-gray-600 mb-1" htmlFor="email">
+              Password
+            </label>
             <input
-              placeholder="Password"
+              placeholder="Must have at least 6 characters"
               id="password"
               type="password"
               value={password}
