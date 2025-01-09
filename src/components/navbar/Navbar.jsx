@@ -12,11 +12,14 @@ function Navbar({ isScrolled }) {
 
   const handleClick = (e) => {
     e.preventDefault();
-    const {name} = e.target;
+    const { name } = e.target;
     if (name === "logout") {
-
+      logout();
     }
-  }
+    if (name === "login") {
+      setShowLogin(!showLogin);
+    }
+  };
 
   return (
     <div
@@ -42,21 +45,22 @@ function Navbar({ isScrolled }) {
       </nav>
       <div className="space-x-4">
         <button
-          onClick={toggleLogin}
+          name="login"
+          onClick={handleClick}
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
         >
           Sign In
         </button>
         <button
-          name="login"
-          onClick={toggleSignUp}
+          name="signup"
+          onClick={handleClick}
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
         >
           Sign Up
         </button>
         <button
-        name="logout"
-          onClick={}
+          name="logout"
+          onClick={handleClick}
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
         >
           Log Out
