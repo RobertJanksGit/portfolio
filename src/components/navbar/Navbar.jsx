@@ -55,22 +55,13 @@ function Navbar({ isScrolled }) {
             Log Out
           </button>
         ) : (
-          <>
-            <button
-              name="login"
-              onClick={handleClick}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-            >
-              Sign In
-            </button>
-            <button
-              name="signup"
-              onClick={handleClick}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-            >
-              Sign Up
-            </button>
-          </>
+          <button
+            name="login"
+            onClick={handleClick}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Sign In
+          </button>
         )}
       </div>
       {showLogin && <Login onClose={toggleLogin} onSwitch={toggleSignUp} />}
