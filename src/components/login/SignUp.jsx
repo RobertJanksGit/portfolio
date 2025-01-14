@@ -1,6 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const SignUp = ({ onClose, onSwitch }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [checkPassword, setCheckPassword] = useState("");
+  const [allowSubmit, setAllowSubmit] = useState(false);
+  const [isValidPassword, setIsValidPassword] = useState(false);
+  const [isBadPassword, setIsBadPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
+    if (password.length > 5) {
+      setIsValidPassword(true);
+    } else {
+      setIsValidPassword(false);
+    }
+  }, [password]);
+
+  useEffect(() => {
+    if (checkPassword !== password && checkPassword.length > 0) {
+      setIsBadPassword(true);
+    } else {
+      setIsBadPassword(false);
+    }
+    if (isValidPassword && checkPassword === password) {
+      setAllowSubmit(true);
+    } else {
+      setAllowSubmit(false);
+    }
+  }, [checkPassword, password, isValidPassword]);
+
   const handleSignUp = (e) => {
     e.preventDefault();
     onClose();
@@ -39,26 +68,56 @@ const SignUp = ({ onClose, onSwitch }) => {
               id="email"
               type="email"
               name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
               className="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div>
             <label className="block text-sm text-gray-600 mb-1" htmlFor="email">
-              Password
+              Create Password
             </label>
             <input
-              placeholder="Must have at least 6 characters"
               id="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="Must have at least 6 characters"
+              className="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+
+            <label
+              className={`block text-sm mb-1 ${
+                isBadPassword ? "text-red-500" : "text-gray-600"
+              }`}
+              htmlFor="email"
+            >
+              {isBadPassword ? "Password does not match" : "Re-type Password"}
+            </label>
+            <input
+              placeholder="Re-type Password"
+              id="checkpassword"
+              type="password"
+              name="checkpassword"
+              value={checkPassword}
+              onChange={(e) => setCheckPassword(e.target.value)}
               required
               className="w-full px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              disabled={!isValidPassword}
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+            onClick={allowSubmit ? handleSignUp : undefined}
+            className={`w-full py-2 rounded ${
+              allowSubmit
+                ? "bg-blue-500 text-white hover:bg-blue-600"
+                : "bg-gray-500 text-gray-300 cursor-not-allowed"
+            }`}
+            disabled={!allowSubmit}
           >
             Sign up
           </button>
